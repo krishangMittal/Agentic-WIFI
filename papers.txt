@@ -1,0 +1,23 @@
+Pushing the limits of remote RF sensing by reading lips under the face mask : 
+ https://www.nature.com/articles/s41467-022-32231-1
+
+ Notes : 
+
+ The RVTALL Dataset (2023)
+
+ RF Modalities: It provides two types of "signals":
+
+7.5 GHz UWB (Ultra-Wideband): Provides Channel Impulse Response (CIR). Good for detecting larger movements.
+
+77 GHz mmWave Radar: Provides FMCW data. This is the "high-res" signal that can actually track lip and throat vibrations.
+
+The Corpus: It includes 5 vowels, 15 words, and 16 sentences.
+
+We want to avoid the "Signal Processing Trap" (spending 3 months on Fourier Transforms). 
+Instead, we’ll treat the RF signal as an image (spectrogram) and let a Vision-LLM or a CNN-Encoder handle the "seeing.
+
+Signal to Image: Converting raw RF to a spectrogram allows you to use pre-trained vision models (like CLIP or ResNet)
+ which are much more robust than custom signal models.
+
+The "Agent Bridge": Even if your model only predicts "O-P-N" instead of "Open," the LLM agent can use
+ fuzzy matching to realize the user meant the open_door() tool.

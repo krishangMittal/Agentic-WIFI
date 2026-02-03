@@ -1,0 +1,26 @@
+name: rf-sensing-research
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy
+  - scipy
+  - matplotlib
+  - jupyter
+  - ipykernel
+  - pip
+  - pip:
+    - torch
+    - torchvision
+    - langchain
+    - langchain-openai  # For DeepSeek (OpenAI-compatible)
+    - langchain-anthropic  # For Claude (optional)
+    - langchain-community
+    - scikit-learn
+    - pandas
+    - seaborn
+    - librosa  # For audio/spectrogram processing
+    - h5py  # For HDF5 data files (common in RF sensing datasets)
+    - requests  # For downloading datasets
+

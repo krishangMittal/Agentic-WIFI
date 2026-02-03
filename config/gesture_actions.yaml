@@ -1,0 +1,140 @@
+# Gesture to Action Mapping Configuration
+# Define what happens when each gesture is detected
+
+# MM-Fi Activities (27 total)
+# Format: activity_code: {action, description, context_rules}
+
+gestures:
+  # Wave gestures - Smart Home Control
+  A17:  # Wave left hand
+    action: "turn_on_lights"
+    description: "Turn on lights"
+    context_rules:
+      - if: "time_is_evening"
+        action: "turn_on_warm_lights"
+      - if: "room_is_bedroom"
+        action: "turn_on_dim_lights"
+  
+  A18:  # Wave right hand
+    action: "turn_off_lights"
+    description: "Turn off lights"
+    context_rules:
+      - if: "user_is_leaving"
+        action: "turn_off_all_devices"
+  
+  # Raise hand - Volume/Temperature Control
+  A13:  # Raise left hand
+    action: "increase_volume"
+    description: "Volume up / Temperature up"
+    context_rules:
+      - if: "music_is_playing"
+        action: "volume_up"
+      - if: "thermostat_active"
+        action: "temperature_up"
+  
+  A14:  # Raise right hand
+    action: "decrease_volume"
+    description: "Volume down / Temperature down"
+    context_rules:
+      - if: "music_is_playing"
+        action: "volume_down"
+      - if: "thermostat_active"
+        action: "temperature_down"
+  
+  # Throwing gestures - Media Control
+  A20:  # Throw left
+    action: "previous_track"
+    description: "Previous song/channel"
+  
+  A21:  # Throw right
+    action: "next_track"
+    description: "Next song/channel"
+  
+  # Kicking - Dismiss/Snooze
+  A22:  # Kick left
+    action: "dismiss_notification"
+    description: "Dismiss alert"
+  
+  A23:  # Kick right
+    action: "snooze_alarm"
+    description: "Snooze for 10 minutes"
+  
+  # Emergency gestures
+  A19:  # Picking up (sudden bend)
+    action: "check_for_fall"
+    description: "Monitor for fall"
+    context_rules:
+      - if: "elderly_person"
+        action: "immediate_alert_if_no_recovery"
+      - if: "alone_at_home"
+        action: "send_check_in_notification"
+  
+  A27:  # Bowing (sudden downward)
+    action: "emergency_check"
+    description: "Check for emergency"
+    context_rules:
+      - if: "no_upward_motion_3_seconds"
+        action: "trigger_emergency_services"
+      - if: "elderly_care_mode"
+        action: "alert_caregiver"
+  
+  A12:  # Squat (sudden lower)
+    action: "monitor_recovery"
+    description: "Monitor if person recovers"
+    context_rules:
+      - if: "prolonged_low_position"
+        action: "check_wellbeing"
+  
+  # Exercise tracking
+  A26:  # Jumping
+    action: "log_exercise"
+    description: "Track jumping jacks"
+  
+  A01:  # Stretching
+    action: "start_workout_mode"
+    description: "Begin exercise session"
+  
+  # Rehabilitation tracking
+  A06:  # Mark time (marching)
+    action: "log_rehab_activity"
+    description: "Track rehabilitation progress"
+  
+  A11:  # Limb extension (both)
+    action: "count_reps"
+    description: "Count exercise repetitions"
+
+# Context definitions
+contexts:
+  elderly_care_mode:
+    enabled: true
+    alert_threshold: 3  # seconds
+    contact: "caregiver_phone"
+  
+  smart_home_mode:
+    enabled: true
+    devices:
+      - lights
+      - thermostat
+      - music_player
+  
+  workout_mode:
+    enabled: false
+    track_activities: [A01, A06, A11, A26]
+  
+  time_based_rules:
+    evening: "18:00-23:00"
+    night: "23:00-06:00"
+    morning: "06:00-12:00"
+
+# Emergency priority (highest to lowest)
+emergency_priorities:
+  critical:
+    - A27  # Bowing (potential fall)
+    - A19  # Picking up (potential fall)
+  high:
+    - A12  # Squat (collapse risk)
+  medium:
+    - None
+  low:
+    - None
+

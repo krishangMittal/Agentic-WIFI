@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Data
+data/raw/MMFi/
+data/processed/mmfi_spectrograms/
+data/synthetic_test/
+*.zip
+*.mat
+*.bin
+*.npy
+
+# Models
+models/*.pth
+models/*.pt
+!models/README.md
+
+# Logs
+*.log
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+Thumbs.db
