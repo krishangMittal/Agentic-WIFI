@@ -44,3 +44,15 @@ logs/
 
 # OS
 Thumbs.db
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+*.env
+secrets/
+*.key
+*_secret*
+*_api_key*
+config/secrets.*
+config/*.key

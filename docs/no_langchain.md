@@ -129,7 +129,7 @@ result = response.json()["choices"][0]["message"]["content"]
 pip install requests
 
 # Set API key
-export DEEPSEEK_API_KEY='sk-71f67cd6e695467eb0251aef4f05d734'
+export DEEPSEEK_API_KEY='your-key-here'
 ```
 
 ### Use the Simple Agent
@@ -140,7 +140,7 @@ from src.agent_simple import RFCommandAgent
 # Initialize (no LangChain!)
 agent = RFCommandAgent(
     use_llm=True,
-    api_key='sk-71f67cd6e695467eb0251aef4f05d734'
+    api_key=os.getenv('DEEPSEEK_API_KEY')  # Set via environment variable
 )
 
 # Use it
@@ -266,7 +266,7 @@ Test the simple version:
 
 ```bash
 # Set API key
-export DEEPSEEK_API_KEY='sk-71f67cd6e695467eb0251aef4f05d734'
+export DEEPSEEK_API_KEY='your-key-here'
 
 # Run demo
 python src/agent_simple.py
@@ -302,7 +302,7 @@ Scenario 1: High Confidence - Clear Command
 
 ## Your API Key
 
-You provided: `sk-71f67cd6e695467eb0251aef4f05d734`
+Set your API key as an environment variable:
 
 Use it with the simple version:
 
@@ -311,13 +311,13 @@ from src.agent_simple import RFCommandAgent
 
 agent = RFCommandAgent(
     use_llm=True,
-    api_key='sk-71f67cd6e695467eb0251aef4f05d734'
+    api_key=os.getenv('DEEPSEEK_API_KEY')  # Set via environment variable
 )
 ```
 
 Or set as environment variable:
 ```bash
-export DEEPSEEK_API_KEY='sk-71f67cd6e695467eb0251aef4f05d734'
+export DEEPSEEK_API_KEY='your-key-here'
 ```
 
 Then just:

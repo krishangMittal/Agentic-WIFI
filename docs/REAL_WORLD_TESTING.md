@@ -328,7 +328,7 @@ def demo_realtime():
         source='file',
         buffer_size=100,
         detection_threshold=0.7,
-        api_key='sk-71f67cd6e695467eb0251aef4f05d734'
+        api_key=os.getenv('DEEPSEEK_API_KEY')  # Set via environment variable
     )
     
     # Test with MM-Fi data (if available)

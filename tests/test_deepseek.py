@@ -9,7 +9,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
 # Set API key for this test
-os.environ['DEEPSEEK_API_KEY'] = 'sk-71f67cd6e695467eb0251aef4f05d734'
+# API key should be set via environment variable: export DEEPSEEK_API_KEY='your-key'
+# os.environ['DEEPSEEK_API_KEY'] = os.getenv('DEEPSEEK_API_KEY')
 
 # Import and test
 from agent_simple import RFCommandAgent

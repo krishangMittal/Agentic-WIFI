@@ -77,7 +77,7 @@ from src.agent_simple import RFCommandAgent
 # Direct DeepSeek API calls - no LangChain needed!
 agent = RFCommandAgent(
     use_llm=True,
-    api_key='sk-71f67cd6e695467eb0251aef4f05d734'  # Your DeepSeek key
+    api_key=os.getenv('DEEPSEEK_API_KEY')  # Set via environment variable
 )
 interpretation = agent.interpret_command(predictions, context="emergency")
 result = agent.execute_action(interpretation)

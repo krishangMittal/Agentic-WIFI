@@ -310,7 +310,7 @@ def demo_agent():
     if not api_key:
         print("[WARNING] DEEPSEEK_API_KEY not set.")
         print("To enable LLM features:")
-        print("  export DEEPSEEK_API_KEY='sk-71f67cd6e695467eb0251aef4f05d734'")
+        print("  export DEEPSEEK_API_KEY='your-key-here'")
         print("\nRunning in rule-based mode for demo...\n")
     
     agent = RFCommandAgent(use_llm=bool(api_key))

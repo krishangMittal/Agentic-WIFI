@@ -152,7 +152,7 @@ Or:
 ```python
 from src.siri_for_wifi import SiriForWiFi
 
-system = SiriForWiFi(api_key='sk-71f67cd6e695467eb0251aef4f05d734')
+system = SiriForWiFi(api_key=os.getenv('DEEPSEEK_API_KEY'))  # Set via environment variable
 result = system.run_pipeline(
     raw_rf_file_path='data/raw/RVTALL/UWB_Radar/subject1_help.mat',
     command_to_extract='help',

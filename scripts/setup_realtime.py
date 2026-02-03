@@ -14,7 +14,8 @@ import queue
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
-os.environ['DEEPSEEK_API_KEY'] = 'sk-71f67cd6e695467eb0251aef4f05d734'
+# API key should be set via environment variable: export DEEPSEEK_API_KEY='your-key'
+# os.environ['DEEPSEEK_API_KEY'] = os.getenv('DEEPSEEK_API_KEY')
 
 from mmfi_processor import MMFiProcessor
 from classifier import RFCommandClassifier

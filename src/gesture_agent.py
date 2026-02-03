@@ -262,7 +262,7 @@ def demo_gesture_agent():
     # Initialize agent
     agent = GestureAgent(
         config_path='config/gesture_actions.yaml',
-        api_key='sk-71f67cd6e695467eb0251aef4f05d734'
+        api_key=os.getenv('DEEPSEEK_API_KEY')  # Set via environment variable
     )
     
     print("\n" + "="*70)
