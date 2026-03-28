@@ -21,7 +21,7 @@ ENV/
 .DS_Store
 
 # Data
-data/raw/MMFi/
+data/raw/
 data/processed/mmfi_spectrograms/
 data/synthetic_test/
 *.zip

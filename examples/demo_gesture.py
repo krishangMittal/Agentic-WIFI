@@ -7,7 +7,7 @@ import os
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent / "src"))
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 # API key should be set via environment variable: export DEEPSEEK_API_KEY='your-key'
 # os.environ['DEEPSEEK_API_KEY'] = os.getenv('DEEPSEEK_API_KEY')
